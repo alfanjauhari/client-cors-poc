@@ -9,11 +9,14 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080', {
-        headers: {
-          Authorization: 'Basic YWRtaW46YWRtaW4=',
-        },
-      });
+      const response = await fetch(
+        'https://basic-auth-poc-production.up.railway.app',
+        {
+          headers: {
+            Authorization: 'Basic YWRtaW46YWRtaW4=',
+          },
+        }
+      );
       const data = await response.json();
       setMessage(data.message);
     } catch (error) {
